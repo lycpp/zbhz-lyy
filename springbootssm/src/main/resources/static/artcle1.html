@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>artcle1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery-3.2.1.js"></script>
+
+</head>
+<script type="text/javascript">
+	$(function() {
+		var title = $("title").text();
+		
+		$("body").append(title);
+		
+		$("#zan").click(
+				function() {
+					alert("你好");
+					jQuery.post("ding",{name:title,statue:1},
+							  function(data){
+							   
+						alert(data);
+							  },
+							  "json")
+				})
+				$("#cai").click(
+				function() {
+					alert("你好");
+					
+					jQuery.post("cai",{name:title,statue:1},
+							  function(data){
+							   alert(data);
+							    
+							  },
+							  "json")
+				})
+	})
+</script>
+<body>
+	
+	<input type="button" value="赞" id="zan">
+	<span id="n1"></span>
+	<input type="button" value="踩" id="cai">
+	<span id="n2"></span>
+
+
+</body>
+</html>
